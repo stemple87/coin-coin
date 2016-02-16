@@ -8,11 +8,34 @@ namespace CoinCombo.Objects
     private int _cents;
     private static List<int> _remaindersObjects = new List<int>{};
 
+
     public Coin(int cents)
     {
       _cents = cents;
     }
 
+    public Dictionary<string,int> GetChange()
+    {
+      Dictionary<string, int> myDictionary = new Dictionary<string, int> ();
+
+      int amountOfQuarters = GetQuarters(_cents);
+      myDictionary.Add("quarters", amountOfQuarters);
+      _cents = _cents - (amountOfQuarters*25);
+
+      int amountOfDimes = GetDimes(_cents);
+      myDictionary.Add("dimes", amountOfDimes);
+      _cents = _cents - (amountOfDimes*10);
+
+      int amountOfNickles = GetNickles(_cents);
+      myDictionary.Add("nickels", amountOfNickles);
+      _cents = _cents - (amountOfNickles*5);
+
+      int amountOfPennies = GetPennies(_cents);
+      myDictionary.Add("pennies", amountOfPennies);
+      _cents = _cents - (amountOfPennies);
+
+      return myDictionary;
+    }
 
     public int GetQuarters(int input)
     {
