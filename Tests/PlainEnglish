@@ -1,0 +1,8 @@
+With user input ("41") We give back one coin each
+Quarters divide by 25 to find amount of quarters
+         modulo by 25 to find the remainder
+Dimes    divide by 10 to find amount of dimes
+         modulo by 10 to find the remainder
+Nickles  divide by 5 to find amount of nickles
+         modulo by 5 to find the remainder
+pennies  = modulo of 5
